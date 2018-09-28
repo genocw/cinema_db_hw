@@ -24,6 +24,9 @@ cust1.save()
 cust2.save()
 cust3.save()
 
+cust3.name = "Aubergine"
+cust3.update()
+
 film1 = Film.new({
   "title"   =>  "Watchmen",
   "price"   =>  6.50
@@ -43,6 +46,9 @@ film1.save()
 film2.save()
 film3.save()
 
+film3.price = 8.80
+film3.update()
+
 ticket1 = Ticket.new({
   "customer_id" =>  cust1.id,
   "film_id"     =>  film1.id
@@ -61,6 +67,11 @@ ticket3 = Ticket.new({
 ticket1.save()
 ticket2.save()
 ticket3.save()
+
+ticket1.film_id = film2.id
+ticket2.film_id = film1.id
+ticket1.update()
+ticket2.update()
 
 binding.pry
 nil
