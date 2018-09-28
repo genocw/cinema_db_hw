@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS tickets;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS films;
 
-CREATE TABLE customers (
+CREATE TABLE customers(
   id        SERIAL8 PRIMARY KEY,
   name      VARCHAR(255),
   funds     DECIMAL
