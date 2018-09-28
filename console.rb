@@ -35,9 +35,9 @@ film3 = Film.new({
   "price"   =>  9.00
   })
 
-# film1.save()
-# film2.save()
-# film3.save()
+film1.save()
+film2.save()
+film3.save()
 
 ticket1 = Ticket.new({
   "customer_id" =>  cust1.id,
