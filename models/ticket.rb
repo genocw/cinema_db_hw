@@ -39,4 +39,36 @@ class Ticket
     SqlRunner.run(sql, values)
   end
 
+  def customer()
+    # know customer id
+    sql = "
+      SELECT * FROM customers
+
+      INNER JOIN tickets
+      ON customers.id = tickets.customer_id
+
+      WHERE customers.id = $1;
+    "
+    values = [@customer_id]
+    results = SqlRunner.run(sql, values)
+    return Customer.new(results[0])
+    # return customer object
+  end
+
+  def film()
+    # know film id
+    sql = "
+      SELECT * FROM films
+
+      INNER JOIN tickets
+      ON films.id = tickets.film_id
+
+      WHERE films.id = $1
+    "
+    values = [@film_id]
+    results = SqlRunner.run(sql, values)
+    return Film.new(results[0])
+    # return film object
+  end
+
 end

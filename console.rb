@@ -64,9 +64,15 @@ ticket3 = Ticket.new({
   "film_id"     =>  film3.id
   })
 
+ticket4 = Ticket.new({
+  "customer_id" =>  cust1.id,
+  "film_id"     =>  film3.id
+  })
+
 ticket1.save()
 ticket2.save()
 ticket3.save()
+ticket4.save()
 
 ticket1.film_id = film2.id
 ticket2.film_id = film1.id
