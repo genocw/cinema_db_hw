@@ -22,4 +22,11 @@ class Customer
     @id = results[0]["id"].to_i
   end
 
+  def self.delete_all()
+    sql = "
+      DELETE FROM customers;
+    "
+    SqlRunner.run(sql)
+  end
+
 end
