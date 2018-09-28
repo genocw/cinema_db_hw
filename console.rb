@@ -35,9 +35,28 @@ film3 = Film.new({
   "price"   =>  9.00
   })
 
-# film1.save()  
+# film1.save()
 # film2.save()
 # film3.save()
+
+ticket1 = Ticket.new({
+  "customer_id" =>  cust1.id,
+  "film_id"     =>  film1.id
+  })
+
+ticket2 = Ticket.new({
+  "customer_id" =>  cust2.id,
+  "film_id"     =>  film2.id
+  })
+
+ticket3 = Ticket.new({
+  "customer_id" =>  cust3.id,
+  "film_id"     =>  film3.id
+  })
+
+# ticket1.save()
+# ticket2.save()
+# ticket3.save()
 
 binding.pry
 nil
