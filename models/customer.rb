@@ -4,21 +4,22 @@ require_relative("ticket.rb")
 
 class Customer
 
-  attr_accessor :id, :name, :funds, :bought
+  attr_accessor :id, :name, :dob, :funds
 
   def initialize(options)
-    @id = options["id"].to_i if options["id"]
-    @name = options["name"]
-    @funds = options["funds"]
+    @id     = options["id"].to_i if options["id"]
+    @name   = options["name"]
+    @dob    = options["dob"]
+    @funds  = options["funds"]
   end
 
   def save()
     sql = "
-      INSERT INTO customers (name, funds)
-      VALUES ($1, $2)
+      INSERT INTO customers (name, dob, funds)
+      VALUES ($1, $2, $3)
       RETURNING id;
     "
-    values = [@name, @funds]
+    values = [@name, @dob, @funds]
     results = SqlRunner.run(sql, values)
     @id = results[0]["id"].to_i
   end
@@ -33,10 +34,10 @@ class Customer
   def update()
     sql = "
       UPDATE customers
-      SET (name, funds) = ($1, $2)
-      WHERE id = $3
+      SET (name, dob, funds) = ($1, $2, $3)
+      WHERE id = $4
     "
-    values = [@name, @funds, @id]
+    values = [@name, @dob, @funds, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -56,6 +57,18 @@ class Customer
     results = SqlRunner.run(sql, values)
     return results.map { |film_hash| Film.new(film_hash) }
     # return array of film objects
+  end
+
+  def age()
+    sql = "
+      SELECT EXTRACT (YEAR FROM AGE(dob))
+      FROM customers
+      WHERE id = $1;
+    "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results[0]["date_part"].to_i
+    # return current age
   end
 
   def buy_ticket(screening)

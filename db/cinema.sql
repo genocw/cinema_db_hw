@@ -6,14 +6,15 @@ DROP TABLE IF EXISTS films;
 CREATE TABLE customers(
   id        SERIAL8 PRIMARY KEY,
   name      VARCHAR(255),
+  dob       DATE,
   funds     DECIMAL(8,2)
 );
 
 CREATE TABLE films (
-  id        SERIAL8 PRIMARY KEY,
-  title     VARCHAR(255)
+  id                SERIAL8 PRIMARY KEY,
+  title             VARCHAR(255),
+  age_restriction   INT8
 );
-
 
 CREATE TABLE screenings (
   id            SERIAL8 PRIMARY KEY,

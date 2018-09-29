@@ -10,14 +10,17 @@ Ticket.delete_all()
 
 cust1 = Customer.new({
   "name"  =>  "Harvey",
+  "dob"   =>  "2004-06-06",  # 14
   "funds" =>  500
   })
 cust2 = Customer.new({
   "name"  =>  "Fred",
+  "dob"   =>  "1995-06-06",  # 23
   "funds" =>  700
   })
 cust3 = Customer.new({
   "name"  =>  "Genie",
+  "dob"   =>  "2001-06-06",  # 17
   "funds" =>  200
   })
 
@@ -30,25 +33,25 @@ cust3.update()
 
 film1 = Film.new({
   "title"   =>  "Watchmen",
-  "price"   =>  6.50
+  "price"   =>  6.50,
+  "age_restriction" =>  18
   })
 
 film2 = Film.new({
   "title"   =>  "Ocean's 8",
-  "price"   =>  7.25
+  "price"   =>  7.25,
+  "age_restriction" =>  nil
   })
 
 film3 = Film.new({
   "title"   =>  "Ray",
-  "price"   =>  9.00
+  "price"   =>  9.00,
+  "age_restriction" =>  16
   })
 
 film1.save()
 film2.save()
 film3.save()
-
-film3.price = 8.80
-film3.update()
 
 screening1 = Screening.new({
   "showtime" => "12:00",
