@@ -1,6 +1,6 @@
 To DO
-    Move price stuff
-    Film age restriction
+√    Move price stuff
+√    Film age restriction
     Customer age
     Customer student boolean?
     price diff by time
