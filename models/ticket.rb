@@ -60,12 +60,14 @@ class Ticket
     sql = "
       SELECT * FROM films
 
+      INNER JOIN screenings
+      ON films.id = screenings.film_id
       INNER JOIN tickets
-      ON films.id = tickets.film_id
+      ON screenings.id = tickets.screening_id
 
-      WHERE films.id = $1
+      WHERE tickets.id = $1
     "
-    values = [@film_id]
+    values = [@id]
     results = SqlRunner.run(sql, values)
     return Film.new(results[0])
     # return film object
