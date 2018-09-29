@@ -1,6 +1,7 @@
 require_relative("models/customer.rb")
 require_relative("models/film.rb")
 require_relative("models/ticket.rb")
+require_relative("models/screening.rb")
 require("pry")
 
 Customer.delete_all()
@@ -78,6 +79,26 @@ ticket1.film_id = film2.id
 ticket2.film_id = film1.id
 ticket1.update()
 ticket2.update()
+
+cust1.buy(film1)    # cust1 funds balance should be 493.50
+cust1.update
+
+screening1 = Screening.new({
+  "showtime" => "12:00",
+  "film_id"  => film1.id
+  })
+screening2 = Screening.new({
+  "showtime" => "15:00",
+  "film_id"  => film2.id
+  })
+screening3 = Screening.new({
+  "showtime" => "18:30",
+  "film_id"  => film3.id
+  })
+
+screening1.save()
+screening2.save()
+screening3.save()
 
 binding.pry
 nil

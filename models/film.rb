@@ -55,4 +55,8 @@ class Film
     # return array of customer objects
   end
 
+  def how_many_customers()
+    return customers.length
+  end
+
 end

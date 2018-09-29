@@ -1,9 +1,10 @@
 require("pg")
 require_relative("../db/sql_runner.rb")
+require_relative("ticket.rb")
 
 class Customer
 
-  attr_accessor :id, :name, :funds
+  attr_accessor :id, :name, :funds, :bought
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
@@ -53,6 +54,14 @@ class Customer
     results = SqlRunner.run(sql, values)
     return results.map { |film_hash| Film.new(film_hash) }
     # return array of film objects
+  end
+
+  def buy(film)
+    @funds -= film.price
+  end
+
+  def how_many_tickets()
+    return films.length
   end
 
 end
