@@ -58,8 +58,8 @@ class Customer
     # return array of film objects
   end
 
-  def buy(film)
-    @funds -= film.price
+  def buy_ticket(screening)
+    #
   end
 
   def how_many_tickets()

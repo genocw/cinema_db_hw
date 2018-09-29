@@ -11,8 +11,7 @@ CREATE TABLE customers(
 
 CREATE TABLE films (
   id        SERIAL8 PRIMARY KEY,
-  title     VARCHAR(255),
-  price     DECIMAL(8,2)
+  title     VARCHAR(255)
 );
 
 
@@ -25,5 +24,6 @@ CREATE TABLE screenings (
 CREATE TABLE tickets (
   id            SERIAL8 PRIMARY KEY,
   customer_id   INT8 REFERENCES customers(id) ON DELETE CASCADE,
-  screening_id  INT8 REFERENCES screenings(id) ON DELETE CASCADE
+  screening_id  INT8 REFERENCES screenings(id) ON DELETE CASCADE,
+  price         DECIMAL(8,2)
 );

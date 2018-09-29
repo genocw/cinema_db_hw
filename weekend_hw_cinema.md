@@ -1,3 +1,12 @@
+To DO
+    Move price stuff
+    Film age restriction
+    Customer age
+    Customer student boolean?
+    price diff by time
+
+
+
 √    1	Class Diagram
 √    2	Database Diagram
 √    3	Directory structure & git init
