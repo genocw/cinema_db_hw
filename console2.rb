@@ -10,18 +10,21 @@ Ticket.delete_all()
 
 cust1 = Customer.new({
   "name"  =>  "Harvey",
-  "dob"   =>  "2004-06-06",  # 14
-  "funds" =>  500
+  "dob"   =>  "2004-06-06",  # 14, student
+  "funds" =>  500,
+  "student" => true
   })
 cust2 = Customer.new({
   "name"  =>  "Fred",
-  "dob"   =>  "1995-06-06",  # 23
-  "funds" =>  700
+  "dob"   =>  "1995-06-06",  # 23, student
+  "funds" =>  700,
+  "student" => true
   })
 cust3 = Customer.new({
   "name"  =>  "Genie",
-  "dob"   =>  "2001-06-06",  # 17
-  "funds" =>  200
+  "dob"   =>  "2001-06-06",  # 17, not student
+  "funds" =>  200,
+  "student" => false
   })
 
 cust1.save()

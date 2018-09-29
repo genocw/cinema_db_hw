@@ -9,7 +9,7 @@ class Ticket
     @id = options["id"].to_i if options["id"]
     @customer_id = options["customer_id"].to_i
     @screening_id = options["screening_id"].to_i
-    @price = options["price"]
+    @price = options["price"].to_f
   end
 
   def save()

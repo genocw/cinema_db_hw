@@ -1,7 +1,8 @@
 To DO
 √    Move price stuff
 √    Film age restriction
-    Customer dob
+√    Customer dob
+√    Customer .age method
     Customer student boolean?
     price diff by time
 

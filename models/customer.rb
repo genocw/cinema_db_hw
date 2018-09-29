@@ -4,13 +4,14 @@ require_relative("ticket.rb")
 
 class Customer
 
-  attr_accessor :id, :name, :dob, :funds
+  attr_accessor :id, :name, :dob, :funds, :student
 
   def initialize(options)
-    @id     = options["id"].to_i if options["id"]
-    @name   = options["name"]
-    @dob    = options["dob"]
-    @funds  = options["funds"]
+    @id       = options["id"].to_i if options["id"]
+    @name     = options["name"]
+    @dob      = options["dob"]
+    @funds    = options["funds"].to_f
+    @student  = options["student"]
   end
 
   def save()
@@ -77,6 +78,10 @@ class Customer
 
   def how_many_tickets()
     return films.length
+  end
+
+  def student?()
+    return @student
   end
 
 end

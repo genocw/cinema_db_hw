@@ -7,7 +7,8 @@ CREATE TABLE customers(
   id        SERIAL8 PRIMARY KEY,
   name      VARCHAR(255),
   dob       DATE,
-  funds     DECIMAL(8,2)
+  funds     DECIMAL(8,2),
+  Student   BOOLEAN
 );
 
 CREATE TABLE films (
