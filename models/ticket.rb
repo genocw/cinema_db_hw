@@ -73,4 +73,20 @@ class Ticket
     # return film object
   end
 
+  def showtime()
+    # we know film id
+    sql = "
+      SELECT showtime FROM screenings
+
+      INNER JOIN tickets
+      ON screenings.id = tickets.screening_id
+
+      WHERE tickets.id = $1;
+    "
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results[0]["showtime"]
+    # return screening time
+  end
+
 end

@@ -19,4 +19,6 @@ class Screening
     @id = results[0]["id"].to_i
   end
 
+  # add update method
+
 end
